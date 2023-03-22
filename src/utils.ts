@@ -131,3 +131,6 @@ export const isGameFinished = (board: Cell[][]) => {
   }
   return visitedCounts >= total - mineCounts;
 };
+
+export const clamp = (input: number, lower: number, upper: number) =>
+  Math.min(Math.max(input, lower), upper);

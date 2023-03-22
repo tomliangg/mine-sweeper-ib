@@ -1,4 +1,8 @@
-import { generateMineSweeperBoard, generateMineLocations } from "./utils";
+import {
+  generateMineSweeperBoard,
+  generateMineLocations,
+  clamp,
+} from "./utils";
 import { describe, it, expect } from "vitest";
 
 describe("generateMineSweeperBoard", () => {
@@ -57,5 +61,19 @@ describe("generateMineLocations", () => {
     expect(() => generateMineLocations(size, mineCounts)).toThrowError(
       "too many mines for the board"
     );
+  });
+});
+
+describe("clamp", () => {
+  it("should limit a number to the given range", () => {
+    const lower = 1;
+    const upper = 100;
+
+    expect(clamp(1000, lower, upper)).toBe(upper);
+    expect(clamp(-1, lower, upper)).toBe(lower);
+    expect(clamp(5, lower, upper)).toBe(5);
+    expect(clamp(2, lower, upper)).toBe(2);
+    expect(clamp(99, lower, upper)).toBe(99);
+    expect(clamp(0, lower, upper)).toBe(lower);
   });
 });
