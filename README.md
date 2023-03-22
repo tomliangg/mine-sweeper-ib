@@ -16,3 +16,7 @@ yarn
 # start the dev server
 yarn dev
 ```
+
+## Try it out
+
+https://tomliang.com/mine-sweeper-ib/
