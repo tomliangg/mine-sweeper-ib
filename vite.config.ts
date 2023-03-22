@@ -9,4 +9,5 @@ export default defineConfig({
     environment: "happy-dom",
     globals: true,
   },
+  base: "/mine-sweeper-ib",
 });
