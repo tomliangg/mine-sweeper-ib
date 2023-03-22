@@ -1,5 +1,8 @@
 import { FC } from "react";
 import { Setting, settings } from "./constants";
+import { clamp } from "./utils";
+const MIN_SIZE = 2;
+const MAX_SIZE = 50;
 
 interface GameControlProps {
   setting: Setting;
@@ -55,10 +58,11 @@ export const GameControl: FC<GameControlProps> = ({
             value={customRowSize}
             type="number"
             name="rowSize"
-            min={2}
-            max={50}
+            min={MIN_SIZE}
+            max={MAX_SIZE}
             onChange={(e) => {
-              const newRowSize = Number(e.target.value) || 1;
+              const input = Number(e.target.value) || 1;
+              const newRowSize = clamp(input, MIN_SIZE, MAX_SIZE);
               setCustomRowSize(newRowSize);
               if (newRowSize * customColSize <= customMineCounts) {
                 setCustomMineCounts(newRowSize * customColSize - 1);
@@ -71,10 +75,11 @@ export const GameControl: FC<GameControlProps> = ({
             value={customColSize}
             type="number"
             name="colSize"
-            min={2}
-            max={50}
+            min={MIN_SIZE}
+            max={MAX_SIZE}
             onChange={(e) => {
-              const newColSize = Number(e.target.value) || 1;
+              const input = Number(e.target.value) || 1;
+              const newColSize = clamp(input, MIN_SIZE, MAX_SIZE);
               setCustomColSize(newColSize);
               if (newColSize * customRowSize <= customMineCounts) {
                 setCustomMineCounts(newColSize * customRowSize - 1);
