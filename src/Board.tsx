@@ -1,4 +1,5 @@
 import { FC, MouseEvent } from "react";
+import { cx } from "@emotion/css";
 import { Cell, POUND, MINE, FLAG, traverse, isGameFinished } from "./utils";
 import { GameStatus } from "./constants";
 
@@ -108,14 +109,15 @@ export const Board: FC<BoardProps> = ({
           {rowData.map((_, j) => (
             <button
               key={`cell-${i}-${j}`}
-              className={`cell ${
-                shouldDisplayCell(i, j) ? "revealed" : "unvisited"
-              } ${
+              className={cx(
+                "cell",
+                shouldDisplayCell(i, j) ? "revealed" : "unvisited",
                 board[i][j] === `${POUND}${MINE}` &&
-                status !== GameStatus.Playing
+                  status !== GameStatus.Playing
                   ? "activeMine"
-                  : "regularCell"
-              } ${status}`}
+                  : "regularCell",
+                status
+              )}
               disabled={status !== GameStatus.Playing}
               onClick={() => handleCellClick(i, j)}
               onContextMenu={(e) => handleRightClick(e, i, j)}
