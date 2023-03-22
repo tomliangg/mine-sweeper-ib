@@ -10,13 +10,18 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/css": "^11.10.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
+    "happy-dom": "^8.9.0",
+    "sass": "^1.59.3",
     "typescript": "^4.9.3",
     "vite": "^4.2.0",
     "vitest": "^0.29.7"
