@@ -1,0 +1,71 @@
+.board {
+  .row {
+    display: flex;
+    justify-content: center;
+    .cell {
+      flex-shrink: 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      border: 1px solid black;
+    }
+
+    .unvisited {
+      background: whitesmoke;
+      cursor: pointer;
+
+      &:hover {
+        background: darken(whitesmoke, 15);
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+    }
+
+    .revealed {
+      background: darkgray;
+      color: white;
+      user-select: none;
+    }
+
+    .lost {
+      color: white;
+    }
+
+    .activeMine {
+      background: coral;
+    }
+  }
+}
+
+.info {
+  margin-top: 30px;
+  text-align: center;
+  background: cornsilk;
+  padding: 3px;
+  font-size: 20px;
+  cursor: pointer;
+  p {
+    text-transform: uppercase;
+  }
+}
+
+.lost.info {
+  color: crimson;
+}
+
+.won.info {
+  color: seagreen;
+}
+
+.restartBtn {
+  display: block;
+  margin-top: 10px;
+}
+
+.selectDifficulty {
+  margin-left: 6px;
+}
